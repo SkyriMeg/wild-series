@@ -1,0 +1,11 @@
+@import "~bootstrap/scss/bootstrap";
+@import "_variables.scss";
+@import "_navbar.scss";
+
+
+
+body {
+    background-color: $secondary;
+    color: white;
+    font-family: $typo;
+}

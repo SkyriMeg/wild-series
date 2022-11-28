@@ -1,10 +1,11 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Wild Series</title>
-	</head>
-	<body>
-		<h1>Bienvenue !</h1>
-	</body>
-</html>
+{% extends 'base.html.twig' %}
+
+{% block title %}Wild Series
+{% endblock %}
+
+{% block body %}
+	<div class="text-center">
+		<h1>Bienvenue</h1>
+		<img src="{{ asset('build/images/pexels-cat.jpeg') }}" class="w-50 rounded" alt="chaton"/>
+	</div>
+{% endblock %}
