@@ -9,3 +9,12 @@ body {
     color: white;
     font-family: $typo;
 }
+
+.btn {
+    background-color: white;
+
+    &:hover {
+        background-color: $primary;
+        color: black;
+    }
+}
