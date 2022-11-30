@@ -1,0 +1,17 @@
+.card {
+    background-color: $secondary-d-light;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.card-synopsis {
+    font-style: italic;
+}
+
+.programsList {
+    display: grid;
+    grid-template-columns: 20rem 2fr;
+    margin: 2rem;
+}

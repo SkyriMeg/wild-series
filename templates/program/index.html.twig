@@ -5,5 +5,23 @@
 
 {% block body %}
 	<h1>{{ website }}
-		index</h1>
+		- séries</h1>
+
+	<div class="programsList">
+		{% for program in programs %}
+
+			<div class="card mb-2" style="width: 18rem">
+
+				<div class="card-body d-flex flex-column align-center">
+					<h3 class="card-title text-uppercase">{{program.title}}</h3>
+					<p class="card-category font-weight-light">{{program.category.name}}</p>
+					<p class="card-synopsis">{{program.synopsis}}</p>
+
+					<div class="mt-auto text-center">
+						<a href="{{ path('program_show', {"id":program.id}) }}" class="btn p-2 rounded">Détails</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 {% endblock %}

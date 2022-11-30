@@ -1,11 +1,12 @@
 @import "~bootstrap/scss/bootstrap";
 @import "_variables.scss";
+@import "_programIndex.scss";
 @import "_navbar.scss";
 
 
 
 body {
-    background-color: $secondary;
+    background-color: $secondary-dark;
     color: white;
     font-family: $typo;
 }
@@ -17,4 +18,10 @@ body {
         background-color: $primary;
         color: black;
     }
+}
+
+h1 {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }

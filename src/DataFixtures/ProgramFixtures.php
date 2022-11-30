@@ -18,7 +18,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         [
             "title" => "Dead To Me",
             "synopsis" => "Le mari de Jen est récemment décédé dans un délit de fuite et sa veuve 
-        sardonique est déterminée à résoudre le crime. Judy, d\'esprit libre et optimiste, 
+        sardonique est déterminée à résoudre le crime. Judy, d'esprit libre et optimiste, 
         a récemment subi une perte tragique. Les deux dames se rencontrent dans un groupe de soutien.",
             "category" => "category_Drame",
         ],
@@ -49,7 +49,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         ],
         [
             "title" => "Alias",
-            "synopsis" => "ydney Bristow travaille comme espionne pour une branche secrète de la CIA, appelée SD 6. C'est du moins ce qu'elle croit, jusqu'au jour où le chef de son unité, Arvin Sloane, fait assassiner son fiancé, après qu'elle lui a avoué sa double vie.",
+            "synopsis" => "Sydney Bristow travaille comme espionne pour une branche secrète de la CIA, appelée SD 6. C'est du moins ce qu'elle croit, jusqu'au jour où le chef de son unité, Arvin Sloane, fait assassiner son fiancé, après qu'elle lui a avoué sa double vie.",
             "category" => "category_Action",
         ],
         [
