@@ -28,8 +28,14 @@ class ProgramController extends AbstractController
     public function show(int $id, ProgramRepository $programRepository): Response
     {
         $program = $programRepository->findOneBy(['id' => $id]);
-        return $this->render('program/show.html.twig', [
-            'program' => $program,
-        ]);
+        if (!$program) {
+            throw $this->createNotFoundException(
+                "Aucune série trouvée !"
+            );
+        } else {
+            return $this->render('program/show.html.twig', [
+                'program' => $program,
+            ]);
+        }
     }
 }

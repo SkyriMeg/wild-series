@@ -5,12 +5,16 @@
 {% endblock %}
 
 {% block body %}
+
 	<a href="{{ path('program_index') }}" type="button" class="btn mt-3">
-		← Retour à la liste des programmes
+		← Toutes les séries
+	</a>
+	<br><a href="{{ path('category_index') }}" type="button" class="btn mt-3">
+		← Retour aux catégories
 	</a>
 
-	<div class="programInfos text-center">
-		<div class="programInfo-text">
+	<div class="media text-center">
+		<div class="media-body">
 			<h1 class="mt-0">{{ program.title }}</h1>
 			<p>{{ program.synopsis }}</p>
 			<p>Genre :

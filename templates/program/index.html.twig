@@ -1,27 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Wild Series
+{% block title %}Séries
 {% endblock %}
 
 {% block body %}
 	<h1>{{ website }}
-		- séries</h1>
+		- Les séries</h1>
 
-	<div class="programsList">
-		{% for program in programs %}
+	<a href="{{ path('app_index') }}" type="button" class="btn mt-3">
+		← Accueil
+	</a>
 
-			<div class="card mb-2" style="width: 18rem">
+	{# {% for program in programs %}
+				<br><div>
+					<h2>{{ loop.index }}
+						/
+						{{ program.title }}
+						- Catégorie :
+						{{ program.category.name }}</h2>
+					<p>{{ program.synopsis }}</p>
+					<a href="{{ path("program_show", { id: program.id }) }}">Voir la fiche</a>
+				</div>
+			{% else %}
+				Aucune série trouvée.
+			{% endfor %} #}
 
-				<div class="card-body d-flex flex-column align-center">
-					<h3 class="card-title text-uppercase">{{program.title}}</h3>
-					<p class="card-category font-weight-light">{{program.category.name}}</p>
-					<p class="card-synopsis">{{program.synopsis}}</p>
 
-					<div class="mt-auto text-center">
-						<a href="{{ path('program_show', {"id":program.id}) }}" class="btn p-2 rounded">Détails</a>
+	{# ---VERSION CARDS--- #}
+	<div class="container">
+		<a href="{{ path('category_index') }}" type="button" class="btn mt-3">
+			Voir par catégorie
+		</a>
+		<div class="programsList">
+			{% for program in programs %}
+
+				<div class="card mb-2" style="width: 18rem">
+
+					<div class="card-body d-flex flex-column align-center">
+						<h3 class=" card-title text-uppercase">{{program.title}}</h3>
+						<p class="card-category font-weight-light">{{program.category.name}}</p>
+						<p class="card-synopsis">{{program.synopsis}}</p>
+
+						<div class="mt-auto text-center">
+							<a href="{{ path('program_show', {"id":program.id}) }}" class="btn p-2 rounded stretched-link">Voir détails</a>
+						</div>
 					</div>
 				</div>
-			</div>
-		{% endfor %}
+			{% else %}
+				Aucune série trouvée.
+			{% endfor %}
+		</div>
 	</div>
 {% endblock %}
