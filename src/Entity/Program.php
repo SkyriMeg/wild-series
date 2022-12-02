@@ -29,7 +29,7 @@ class Program
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
-    #[ORM\OneToMany(mappedBy: 'program_id', targetEntity: Season::class)]
+    #[ORM\OneToMany(mappedBy: 'program', targetEntity: Season::class)]
     private Collection $seasons;
 
     public function __construct()
@@ -103,7 +103,7 @@ class Program
     {
         if (!$this->seasons->contains($season)) {
             $this->seasons->add($season);
-            $season->setProgramId($this);
+            $season->setProgram($this);
         }
 
         return $this;
@@ -113,8 +113,8 @@ class Program
     {
         if ($this->seasons->removeElement($season)) {
             // set the owning side to null (unless already changed)
-            if ($season->getProgramId() === $this) {
-                $season->setProgramId(null);
+            if ($season->getProgram() === $this) {
+                $season->setProgram(null);
             }
         }
 
