@@ -19,6 +19,17 @@
 			<p>{{ program.synopsis }}</p>
 			<p>Genre :
 				{{ program.category.name }}</p>
-		</div>
-	</div>
-{% endblock %}
+
+			{% for season in program.seasons %}
+				<li>
+					{# <li href="{{ path("program_season_show", {"programId": program.id, "seasonId": season.id }) }}" class="text-dark"> #}
+					Saison
+					{{ season.number }}
+					-{{  season.year }}
+				</li>
+			</a>
+		</li>
+	{% else %}
+		Aucune saison trouvée.
+	{%  endfor %}
+</div></div>{% endblock %}

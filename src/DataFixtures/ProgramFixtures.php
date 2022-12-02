@@ -6,9 +6,11 @@ use App\Entity\Program;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use Faker\Factory;
 
 class ProgramFixtures extends Fixture implements DependentFixtureInterface
 {
+    const NBPROGRAMS = 9;
     const PROGRAMS = [
         [
             "title" => "Mercredi",
@@ -59,6 +61,8 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         ],
     ];
 
+    public static int $programIndex = 0;
+
     public function load(ObjectManager $manager): void
     {
         foreach (self::PROGRAMS as $programDetails) {
@@ -67,6 +71,8 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
             $program->setSynopsis($programDetails['synopsis']);
             $program->setCategory($this->getReference($programDetails['category']));
             $manager->persist($program);
+            $this->addReference('program_' . self::$programIndex, $program);
+            self::$programIndex++;
         }
         $manager->flush();
     }
