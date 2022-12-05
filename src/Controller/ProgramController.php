@@ -48,7 +48,7 @@ class ProgramController extends AbstractController
         }
     }
 
-    #[Route('/{programId}/seasons/{seasonId}', requirements: ['programId' => '\d+', 'seasonId' => '\d+'], methods: ['GET'], name: 'season_show')]
+    #[Route('/program/{programId}/seasons/{seasonId}', requirements: ['programId' => '\d+', 'seasonId' => '\d+'], methods: ['GET'], name: 'program_season_show')]
     public function showSeason(int $programId, int $seasonId, ProgramRepository $programRepository, SeasonRepository $seasonRepository): Response
     {
         $program = $programRepository->findOneBy(['id' => $programId]);
@@ -56,7 +56,7 @@ class ProgramController extends AbstractController
 
         if (!$program || !$season) {
             throw $this->createNotFoundException(
-                'Aucun programme ou saison trouvé.'
+                'Aucune série ou saison trouvée.'
             );
         }
 

@@ -4,6 +4,10 @@
 	{{ program.title }}
 	- Saison
 	{{ season.number }}
+	- Episode
+	{{ episode.number }}
+	:
+	{{ episode.name }}
 {% endblock %}
 
 {% block body %}
@@ -18,16 +22,14 @@
 		<ul>
 			{% for episode in season.episodes %}
 				<li>
-					<a href="{{ path("program_episode_show", {"program": program.id, "season": season.id, "episode":episode.id }) }}">
-						{{episode.number}}
-						-
-						<i>{{ episode.title }}</i>
-					</li>
+					{{episode.number}}
+					-
+					<i>{{ episode.title }}</i>
 				</li>
 			</a>
 		</li>
 	{% else %}
-		<h2>Pas d'épisode à afficher</h2>
+		<h2>Pas d'épisodes à afficher</h2>
 	{% endfor %}
 </ul>
 <a href="{{ path('program_show', {"id":program.id}) }}">
