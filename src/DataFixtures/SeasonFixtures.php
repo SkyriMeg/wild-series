@@ -13,6 +13,8 @@ use Faker\Factory;
 class SeasonFixtures extends Fixture implements DependentFixtureInterface
 {
     public static int $seasonIndex = 0;
+    public const NBSEASONS = 10;
+
 
     public function load(ObjectManager $manager): void
     {
