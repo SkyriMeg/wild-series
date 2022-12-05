@@ -13,6 +13,8 @@ use Faker\Factory;
 class SeasonFixtures extends Fixture implements DependentFixtureInterface
 {
     public static int $seasonIndex = 0;
+    public const NBSEASONS = 10;
+
 
     public function load(ObjectManager $manager): void
     {
@@ -31,7 +33,7 @@ class SeasonFixtures extends Fixture implements DependentFixtureInterface
                 $season->setNumber($i + 1);
                 $season->setYear($faker->year());
                 $season->setDescription($faker->paragraphs(3, true));
-                $season->setProgramId($this->getReference('program_' . $j));
+                $season->setProgram($this->getReference('program_' . $j));
                 $manager->persist($season);
                 $this->addReference('season_' . self::$seasonIndex, $season);
                 self::$seasonIndex++;

@@ -6,7 +6,7 @@
 	{{ season.number }}
 {% endblock %}
 
-{% block content %}
+{% block body %}
 	<main>
 		<h1>Saison
 			{{ season.number }}
@@ -15,21 +15,20 @@
 		</h1>
 		<p>{{ season.description }}
 		</p>
-		{# <ul>
-					{% for episode in season.episodes %}
-						<li>
-							<a href="{{ path("program_episode_show", {"program": program.id, "season": season.id, "episode":episode.id }) }}">
-								{{episode.number}}
-								-
-								<i>{{ episode.title }}</i>
-							</a>
-						</li>
-					{% else %}
-						<h2>Pas d'épisodes à afficher</h2>
-					{% endfor %}
-				</ul> #}
-		<a href="{{ path('program_showDetail', {"id":program.id}) }}">
-			Retour à la fiche série
-		</a>
-	</main>
-{% endblock %}
+		<ul>
+			{% for episode in season.episodes %}
+				<li>
+					<a href="{{ path('program_episode_show', {'programId': program.id, 'seasonId': season.id, 'episodesId':episode.id }) }}">
+						{{episode.number}}
+						-
+						<i>{{ episode.title }}</i>
+					</li>
+				</li>
+			</a>
+		</li>
+	{% else %}
+		<h2>Pas d'épisode à afficher</h2>
+	{% endfor %}
+</ul>
+<a href="{{ path('program_show', {"id":program.id}) }}">
+	Retour à la fiche série</a></main>{% endblock %}
