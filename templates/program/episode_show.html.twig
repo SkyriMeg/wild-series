@@ -8,13 +8,13 @@
 {%  block body %}
 	<main>
 		<h1>{{ program.title }}</h1>
-		<h2>{{ episodes.title }}
-			-
+		<h2>{{ episodes.title }}</h2>
+		<h5>
 			<i>Saison
 				{{ season.number }}
 				: Episode
 				{{ episodes.number }}</i>
-		</h1>
+		</h5>
 		<p>{{ episodes.synopsis }}</p>
 
 		<a href="{{ path("program_season_show", {"programId": program.id, "seasonId": season.id }) }}">
