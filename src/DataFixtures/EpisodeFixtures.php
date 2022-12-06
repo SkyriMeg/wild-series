@@ -23,7 +23,7 @@ class EpisodeFixtures extends Fixture implements DependentFixtureInterface
          * de te générer toutes les données que tu souhaites
          */
 
-        for ($i = 0; $i < SeasonFixtures::NBSEASONS; $i++) {
+        for ($i = 0; $i < SeasonFixtures::$seasonIndex; $i++) {
 
             for ($e = 0; $e < self::NBEPISODES; $e++) {
                 $episode = new Episode();
