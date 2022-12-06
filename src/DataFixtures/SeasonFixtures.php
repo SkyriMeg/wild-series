@@ -13,7 +13,7 @@ use Faker\Factory;
 class SeasonFixtures extends Fixture implements DependentFixtureInterface
 {
     public static int $seasonIndex = 0;
-    public const NBSEASONS = 10;
+    public const NBSEASONS = 5;
 
 
     public function load(ObjectManager $manager): void
@@ -27,7 +27,7 @@ class SeasonFixtures extends Fixture implements DependentFixtureInterface
          */
         for ($j = 0; $j < ProgramFixtures::$programIndex; $j++) {
 
-            for ($i = 0; $i < 5; $i++) {
+            for ($i = 0; $i < self::NBSEASONS; $i++) {
                 $season = new Season();
                 //Ce Faker va nous permettre d'alimenter l'instance de Season que l'on souhaite ajouter en base
                 $season->setNumber($i + 1);
