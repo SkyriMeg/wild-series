@@ -16,6 +16,13 @@
 					<a class="nav-link" href="#">Films</a>
 				</li>
 
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('category_new') }}">Ajouter une catégorie</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('program_new') }}">Ajouter une série</a>
+				</li>
+
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Mon compte
@@ -33,11 +40,8 @@
 						</li>
 					</ul>
 				</li>
-
-				<li class="nav-item">
-					<a class="nav-link disabled">Disabled</a>
-				</li>
 			</ul>
+
 			<form class="d-flex" role="search">
 				<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success" type="submit">Search</button>
