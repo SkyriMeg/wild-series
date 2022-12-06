@@ -36,7 +36,7 @@ class ProgramController extends AbstractController
         ]);
     }
 
-    #[Route('program/new', name: 'new')]
+    #[Route('program/new', name: 'program_new')]
     public function new(Request $request, ProgramRepository $programRepository): Response
     {
         // Create a new program Object
