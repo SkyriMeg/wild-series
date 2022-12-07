@@ -7,8 +7,16 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use App\Entity\Host;
 
 #[ORM\Entity(repositoryClass: ProgramRepository::class)]
+#[UniqueEntity(
+    fields: ['title'],
+    errorPath: 'title',
+    message: 'Ce titre existe déjà.',
+)]
 class Program
 {
     #[ORM\Id]
@@ -16,10 +24,16 @@ class Program
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $title = null;
+    #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(message: 'Veuillez renseigner ce champ.')]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: 'La catégorie {{ value }} est trop longue, elle ne devrait pas dépasser {{ limit }} caractères.'
+    )]
+    public ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: 'Veuillez renseigner ce champ.')]
     private ?string $synopsis = null;
 
     #[ORM\Column(length: 255, nullable: true)]
