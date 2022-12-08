@@ -31,6 +31,7 @@ class EpisodeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $episodeRepository->save($episode, true);
 
+            $this->addFlash('success', "L'épisode a bien été ajouté !");
             return $this->redirectToRoute('app_episode_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -56,7 +57,7 @@ class EpisodeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $episodeRepository->save($episode, true);
-
+            $this->addFlash('danger', "L'épisode a bien été modifié !");
             return $this->redirectToRoute('app_episode_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -69,7 +70,8 @@ class EpisodeController extends AbstractController
     #[Route('/{id}', name: 'app_episode_delete', methods: ['POST'])]
     public function delete(Request $request, Episode $episode, EpisodeRepository $episodeRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$episode->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $episode->getId(), $request->request->get('_token'))) {
+            $this->addFlash('danger', "L'épisode a bien été supprimé !");
             $episodeRepository->remove($episode, true);
         }
 

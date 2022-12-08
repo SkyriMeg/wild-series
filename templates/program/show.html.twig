@@ -35,4 +35,5 @@
 	{% else %}
 		Aucune saison trouvée.
 	{%  endfor %}
+	<br><a href="{{ path('program_edit', {'id': program.id}) }}">Modifier</a>
 </div></div>{% endblock %}

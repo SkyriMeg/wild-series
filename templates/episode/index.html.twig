@@ -6,6 +6,8 @@
 {% block body %}
 	<h1>Episodes index</h1>
 
+	<a href="{{ path('app_episode_new') }}">Ajouter un nouvel épisode</a>
+
 	<table class="table">
 		<thead>
 			<tr>
@@ -35,6 +37,4 @@
 			{% endfor %}
 		</tbody>
 	</table>
-
-	<a href="{{ path('app_episode_new') }}">Créer un nouvel épisode</a>
 {% endblock %}

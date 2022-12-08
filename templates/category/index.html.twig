@@ -11,6 +11,8 @@
 
 	<h1>Catégories</h1>
 
+	<a href="{{ path('category_new') }}">Ajouter une nouvelle catégorie</a>
+
 	<div class="d-flex justify-content-around text-center mt-5">
 		{% for category in categories %}
 			<a class="btn p-2 mx-2 rounded" style="width: 12rem" href="{{ path("category_show", { categoryName: category.name }) }}">{{ category.name }}
