@@ -11,18 +11,18 @@
 	</a>
 
 	{# {% for program in programs %}
-									<br><div>
-										<h2>{{ loop.index }}
-											/
-											{{ program.title }}
-											- Catégorie :
-											{{ program.category.name }}</h2>
-										<p>{{ program.synopsis }}</p>
-										<a href="{{ path("program_show", { id: program.id }) }}">Voir la fiche</a>
-									</div>
-								{% else %}
-									Aucune série trouvée.
-								{% endfor %} #}
+										<br><div>
+											<h2>{{ loop.index }}
+												/
+												{{ program.title }}
+												- Catégorie :
+												{{ program.category.name }}</h2>
+											<p>{{ program.synopsis }}</p>
+											<a href="{{ path("program_show", { id: program.id }) }}">Voir la fiche</a>
+										</div>
+									{% else %}
+										Aucune série trouvée.
+									{% endfor %} #}
 
 
 	{# ---VERSION CARDS--- #}
@@ -30,6 +30,8 @@
 		<a href="{{ path('category_index') }}" type="button" class="btn mt-3">
 			Voir par catégorie
 		</a>
+		<br><a href="{{ path('program_new') }}">Ajouter une nouvelle série</a>
+
 		<div class="programsList row row-cols-4 g-4">
 			{% for program in programs %}
 

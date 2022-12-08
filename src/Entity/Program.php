@@ -30,6 +30,11 @@ class Program
         max: 255,
         maxMessage: 'La catégorie {{ value }} est trop longue, elle ne devrait pas dépasser {{ limit }} caractères.'
     )]
+    #[Assert\Regex(
+        pattern: '/plus belle la vie/',
+        match: false,
+        message: 'On parle de vraies séries...',
+    )]
     public ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
