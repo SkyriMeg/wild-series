@@ -13,38 +13,22 @@
 					<a class="nav-link" href="{{ path('program_index') }}">Séries</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Films</a>
+					<a class="nav-link" href="{{ path('program_new') }}">Ajouter une série</a>
 				</li>
-
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path('category_new') }}">Ajouter une catégorie</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{{ path('program_new') }}">Ajouter une série</a>
+					<a class="nav-link" href="{{ path('app_season_index') }}">Saisons index</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path('app_season_new') }}">Ajouter une saison</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{{ path('app_episode_new') }}">Ajouter un épisode</a>
+					<a class="nav-link" href="{{ path('app_episode_index') }}">Episodes index</a>
 				</li>
-
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Mon compte
-					</a>
-					<ul class="dropdown-menu">
-						<li>
-							<a class="dropdown-item" href="#">Action</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="#">Another action</a>
-						</li>
-						<li><hr class="dropdown-divider"></li>
-						<li>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</li>
-					</ul>
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('app_episode_new') }}">Ajouter un épisode</a>
 				</li>
 			</ul>
 
