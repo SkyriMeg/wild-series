@@ -23,6 +23,7 @@ class ProgramController extends AbstractController
     {
         $programs = $programRepository->findAll();
         $categories = $categoryRepository->findAll();
+        $actors = $categoryRepository->findAll();
 
         if (!$programs) {
             throw $this->createNotFoundException(
@@ -33,6 +34,7 @@ class ProgramController extends AbstractController
             'website' => 'Wild Series',
             'programs' => $programs,
             'categories' => $categories,
+            'actors' => $actors,
         ]);
     }
 
