@@ -30,5 +30,5 @@
 		<h2>Pas d'épisode à afficher</h2>
 	{% endfor %}
 </ul>
-<a href="{{ path('program_show', {"id":program.id}) }}">
+<a href="{{ path('program_show', {slug:program.slug}) }}">
 	Retour à la fiche série</a></main>{% endblock %}

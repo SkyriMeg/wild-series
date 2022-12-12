@@ -15,6 +15,8 @@
 				: Episode
 				{{ episodes.number }}</i>
 		</h5>
+		<p>{{ episodes.duration }}
+			min</p>
 		<p>{{ episodes.synopsis }}</p>
 
 		<a href="{{ path("program_season_show", {"programId": program.id, "seasonId": season.id }) }}">
@@ -22,7 +24,7 @@
 			{{ season.number }}
 		</a>
 
-		<br><a href="{{ path('program_show', {"id":program.id}) }}">
+		<br><a href="{{ path('program_show', {slug:program.slug}) }}">
 			Retour à la fiche série</a>
 	</main>
 {% endblock %}
