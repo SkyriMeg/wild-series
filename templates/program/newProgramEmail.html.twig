@@ -1,0 +1,8 @@
+{% extends "_layoutMail.html.twig" %}
+{% block title %}Nouvelle série{% endblock %}
+
+{% block body %}
+    <h1>Nouvelle série {{ program.title }} publiée</h1>
+    <p>Hello, la nouvelle série "{{ program.title }}" vient d'être publiée sur Wild Series ! ;)</p>
+    <p>Synopsis : {{program.synopsis }}</p>
+{% endblock %}
