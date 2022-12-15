@@ -1,23 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-	{{ actor.name }}
+{% block title %}Acteur / Actrice
 {% endblock %}
 
 {% block body %}
-	<h1>{{ actor.name }}</h1>
+	<h1>Acteur / Actrice</h1>
 
-	Identifiant :
-	{{ actor.id }}
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Identifiant</th>
+				<td>{{ actor.id }}</td>
+			</tr>
+			<tr>
+				<th>Nom</th>
+				<td>{{ actor.name }}</td>
+			</tr>
+			<tr>
+				<th>Mise à jour</th>
+				<td>{{ actor.updatedAt ? actor.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+			<tr>
+				<th>Photo</th>
+				<td><img class="rounded w-25 mb-2" src="{{ vich_uploader_asset(actor) }}" alt="{{ actor.name }}"/></td>
+			</tr>
+		</tbody>
+	</table>
 
-	<br>Séries :
-	{% for program in actor.programs %}
-		<a href="{{ path("program_show", {slug:program.slug}) }}">{{ program.title }}</a>
-		||
-	{% else %}
-		<li>Aucune série pour cet acteur.</li>
-	{% endfor %}
+	<a href="{{ path('app_actor_index') }}">Retour à la liste</a>
 
-	<br><a href="{{ path('actor_index') }}">Retour à la liste</a>
+	<a href="{{ path('app_actor_edit', {'id': actor.id}) }}">Modifier</a>
 
+	{{ include('actor/_delete_form.html.twig') }}
 {% endblock %}
