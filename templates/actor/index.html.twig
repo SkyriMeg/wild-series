@@ -6,12 +6,16 @@
 {% block body %}
 	<h1>Acteurs index</h1>
 
+	<a href="{{ path('app_actor_new') }}">Ajouter un acteur / actrice</a>
+
 	<table class="table">
 		<thead>
 			<tr>
 				<th>Identifiant</th>
 				<th>Nom</th>
-				<th>Séries</th>
+				<th>Mise à jour</th>
+				<th>Photo</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -19,21 +23,18 @@
 				<tr>
 					<td>{{ actor.id }}</td>
 					<td>{{ actor.name }}</td>
+					<td>{{ actor.updatedAt ? actor.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+					<td><img class="rounded w-25 mb-2" src="{{ vich_uploader_asset(actor) }}" alt="{{ actor.name }}"/></td>
 					<td>
-						{% for program in actor.programs %}
-							{{ program.title }}
-							-
-						{% endfor %}
-					</td>
-					<td>
-						<a href="{{ path('actor_show', {'id': actor.id}) }}">Voir</a>
+						<a href="{{ path('app_actor_show', {'id': actor.id}) }}">Voir</a>
+						<a href="{{ path('app_actor_edit', {'id': actor.id}) }}">Modifier</a>
 					</td>
 				</tr>
 			{% else %}
 				<tr>
-					<td colspan="5">Aucun acteur trouvé</td>
+					<td colspan="5">Aucun acteur / actrice trouvé</td>
 				</tr>
 			{% endfor %}
 		</tbody>
-	</tbody>
-</table>{% endblock %}
+	</table>
+{% endblock %}
